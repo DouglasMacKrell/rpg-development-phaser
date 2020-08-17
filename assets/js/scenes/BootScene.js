@@ -16,4 +16,7 @@ class BootScene extends Phaser.Scene {
     this.load.audio("goldSound", ["assets/audio/Pickup.wav"]);
   }
 
+  create() {
+    this.scene.start("Game");
+  }
 }
