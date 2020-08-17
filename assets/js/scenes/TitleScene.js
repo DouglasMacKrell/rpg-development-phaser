@@ -15,30 +15,19 @@ class TitleScene extends Phaser.Scene {
     );
     this.titleText.setOrigin(0.5);
 
-    // create start button
-    this.button = this.add.image(
+    // create the play game button
+    this.startGameButton = new UiButton(
+      this,
       this.scale.width / 2,
       this.scale.height * 0.65,
-      "button1"
+      "button1",
+      "button2",
+      "ENTER",
+      this.startScene.bind(this, "Game")
     );
-    this.button.setInteractive({ useHandCursor: true });
+  }
 
-    this.buttonText = this.add.text(0, 0, "ENTER", {
-      fontSize: "26px",
-      fill: "#fff",
-    });
-    Phaser.Display.Align.In.Center(this.buttonText, this.button);
-
-    this.button.on("pointerdown", () => {
-      this.scene.start("Game");
-    });
-
-    this.button.on("pointerover", () => {
-      this.button.setTexture("button2");
-    });
-
-    this.button.on("pointerout", () => {
-      this.button.setTexture("button1");
-    });
+  startScene(targetScene) {
+    this.scene.start(targetScene)
   }
 }
