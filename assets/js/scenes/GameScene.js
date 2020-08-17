@@ -6,9 +6,6 @@ class GameScene extends Phaser.Scene {
   create() {
     var goldPickupAudio = this.sound.add("goldSound");
 
-    var button = this.add.image(10, 100, "button1");
-    button.setOrigin(0, 0);
-
     this.chest = new Chest(this, 300, 300, "items", 0);
 
     this.wall = this.physics.add.image(500, 100, "button1");
